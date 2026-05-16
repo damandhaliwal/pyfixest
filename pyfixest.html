@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>pyfixest</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dc29e2a399d569944613f91096388b77.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<!-- Cloudflare Web Analytics --><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;bfa3a9287252444c8aa02b664fea7f09&quot;}"></script><!-- End Cloudflare Web Analytics -->
+
+
+<link rel="alternate" type="text/markdown" href="pyfixest.html.md">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./pyfixest.html" aria-current="page"> 
+<span class="menu-text">PyFixest</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./getting-started.html"> 
+<span class="menu-text">Getting Started</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./reference/index.html"> 
+<span class="menu-text">Function Reference</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+        <li>
+    <a class="dropdown-item" href="./tutorials/index.html">
+ <span class="dropdown-text">All Tutorials</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./tutorials/ols-fixed-effects.html">
+ <span class="dropdown-text">OLS with Fixed Effects</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tutorials/formula-syntax.html">
+ <span class="dropdown-text">Formula Syntax</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tutorials/instrumental-variables.html">
+ <span class="dropdown-text">Instrumental Variables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tutorials/regression-tables.html">
+ <span class="dropdown-text">Regression Tables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tutorials/difference-in-differences.html">
+ <span class="dropdown-text">Difference-in-Differences</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tutorials/quantile-regression.html">
+ <span class="dropdown-text">Quantile Regression</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-guides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Guides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-guides">    
+        <li>
+    <a class="dropdown-item" href="./how-to/index.html">
+ <span class="dropdown-text">All Guides</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./how-to/demeaner-backends.html">
+ <span class="dropdown-text">Choosing a Demeaner Backend</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./how-to/marginaleffects.html">
+ <span class="dropdown-text">Marginal Effects &amp; Hypothesis Testing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./how-to/regression_decomposition.html">
+ <span class="dropdown-text">Regression Decomposition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./how-to/pyfixest_gpu.html">
+ <span class="dropdown-text">PyFixest on the GPU via JAX</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pyfixest-gpu-cupy.html">
+ <span class="dropdown-text">PyFixest on the GPU via CuPy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./how-to/stata-2-pyfixest.html">
+ <span class="dropdown-text">Compare Stata &amp; PyFixest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./how-to/panel_variance_reduction.html">
+ <span class="dropdown-text">Variance Reduction in AB Tests</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-explanation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Explanation</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-explanation">    
+        <li>
+    <a class="dropdown-item" href="./explanation/difficult-fixed-effects.html">
+ <span class="dropdown-text">When Are Fixed Effects Problems Difficult?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./explanation/ssc.html">
+ <span class="dropdown-text">On Small Sample Corrections</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./explanation/compare-fixest-pyfixest.html">
+ <span class="dropdown-text">Does PyFixest Match fixest?</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-textbook-replications" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Textbook Replications</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-textbook-replications">    
+        <li>
+    <a class="dropdown-item" href="./textbook-replications/index.html">
+ <span class="dropdown-text">All Textbook Replications</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./textbook-replications/brave_true.html">
+ <span class="dropdown-text">Causal Inference for the Brave and True</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./textbook-replications/mixtape.html">
+ <span class="dropdown-text">Causal Inference: The Mixtape</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./textbook-replications/replicating-the-effect.html">
+ <span class="dropdown-text">The Effect</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./textbook-replications/resources.html">
+ <span class="dropdown-text">Other Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./changelog.html"> 
+<span class="menu-text">Changelog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contributing.html"> 
+<span class="menu-text">Contributing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./acknowledgements.html"> 
+<span class="menu-text">Acknowledgements</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./pyfixest-sprint.html"> 
+<span class="menu-text">Sprint 2026</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./llms.txt"> <i class="bi bi-robot" role="img">
+</i> 
+<span class="menu-text">llms.txt</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./skills.html"> 
+<span class="menu-text">Skills.md</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/py-econometrics/pyfixest/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<p><img src="figures/pyfixest-logo.png" class="img-fluid"></p>
+<section id="pyfixest-fast-high-dimensional-fixed-effects-regression-in-python" class="level1">
+<h1>PyFixest: Fast High-Dimensional Fixed Effects Regression in Python</h1>
+<p><a href="https://opensource.org/license/mit"><img src="https://img.shields.io/badge/License-MIT-green.svg" class="img-fluid" alt="License"></a> <img src="https://img.shields.io/badge/Python-3.9–3.14-blue" class="img-fluid" alt="Python Versions"> <a href="https://pypi.org/project/pyfixest/"><img src="https://img.shields.io/pypi/v/pyfixest.svg" class="img-fluid" alt="PyPI Version"></a> <a href="https://codecov.io/gh/py-econometrics/pyfixest"><img src="https://codecov.io/gh/py-econometrics/pyfixest/branch/master/graph/badge.svg" class="img-fluid" alt="Coverage"></a> <a href="https://pepy.tech/project/pyfixest"><img src="https://img.shields.io/pepy/dt/pyfixest.png" class="img-fluid" alt="Downloads"></a> <a href="https://pepy.tech/project/pyfixest"><img src="https://img.shields.io/pypi/dm/pyfixest.png" class="img-fluid" alt="Downloads"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://discord.gg/gBAydeDMVK"><img src="https://img.shields.io/discord/1259933360726216754.svg?label=&amp;logo=discord&amp;logoColor=ffffff&amp;color=7389D8&amp;labelColor=6A7EC2&amp;style=flat-square" class="img-fluid figure-img"></a></p>
+<figcaption>Project Chat</figcaption>
+</figure>
+</div>
+<p><a href="https://pyfixest.org/pyfixest.html">Docs</a> · <a href="https://pyfixest.org/quickstart.html">Quickstart</a> · <a href="https://pyfixest.org/reference/">Function &amp; API Reference</a> · <a href="https://deepwiki.com/py-econometrics/pyfixest">DeepWiki</a> · <a href="https://github.com/py-econometrics/pyfixest/tree/master/benchmarks">Benchmarks</a> · <a href="https://pyfixest.org/contributing.html">Contributing</a> · <a href="https://pyfixest.org/changelog.html">Changelog</a></p>
+<p><code>PyFixest</code> is a Python package for fast high-dimensional fixed effects regression.</p>
+<p>The package aims to mimic the syntax and functionality of <a href="https://sites.google.com/site/laurentrberge/">Laurent Bergé’s</a> formidable <a href="https://github.com/lrberge/fixest">fixest</a> package as closely as Python allows. If you know <code>fixest</code> well, the goal is that you won’t have to read the docs to get started! In particular, this means that all of <code>fixest's</code> defaults are mirrored by <code>PyFixest</code>.</p>
+<p>For questions on <code>PyFixest</code>, head over to our <a href="https://github.com/py-econometrics/pyfixest/discussions">GitHub discussions</a>, or join our <a href="https://discord.gg/gBAydeDMVK">Discord server</a>.</p>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
+<ul>
+<li><strong>Estimation</strong>
+<ul>
+<li><strong>OLS</strong>, <strong>WLS</strong>, <strong>IV</strong>, and <strong>GLMs</strong> (Poisson, logit, probit, gaussian) with high-dimensional fixed effects</li>
+<li>Different <strong>demeaning backends</strong> (MAP, <a href="https://github.com/py-econometrics/within">within</a>, LSMR) on CPU and GPU</li>
+<li>Fast <strong>quantile regression</strong> via an interior-point solver</li>
+<li><strong>Difference-in-differences</strong> estimators, including TWFE, <code>Did2s</code>, local projections, and Sun-Abraham event studies</li>
+<li>Regression <strong>decomposition</strong> following <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1425737">Gelbach (2016)</a></li>
+<li>Multiple estimation syntax</li>
+</ul></li>
+<li><strong>Inference</strong>
+<ul>
+<li>Several <strong>robust</strong>, <strong>cluster-robust</strong>, and <strong>HAC variance-covariance</strong> estimators</li>
+<li><strong>Wild cluster bootstrap</strong> inference via <a href="https://github.com/py-econometrics/wildboottest">wildboottest</a></li>
+<li><strong>Multiple hypothesis corrections</strong> and simultaneous confidence intervals</li>
+<li>Fast <strong>randomization inference</strong></li>
+<li>The <strong>causal cluster variance estimator (CCV)</strong></li>
+</ul></li>
+<li><strong>Post-Estimation &amp; Reporting</strong>
+<ul>
+<li><strong>Publication-ready tables</strong> with <a href="https://posit-dev.github.io/great-tables/articles/intro.html">Great Tables</a> or LaTeX booktabs via the <a href="https://github.com/py-econometrics/maketables">maketables library</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the release version from <code>PyPI</code> by running</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inside an active virtual environment</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install pyfixest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or the development version from github by running</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install git+https://github.com/py-econometrics/pyfixest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details>
+<summary>
+Optional dependencies
+</summary>
+<p>For visualization features using the <code>lets-plot</code> backend, install:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install pyfixest<span class="pp">[</span><span class="ss">plots</span><span class="pp">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>matplotlib</code> is included by default, so plotting works without this extra.</p>
+<p>For GPU-accelerated fixed-effects demeaning via CuPy, install the build matching your CUDA version:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install cupy-cuda11x</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install cupy-cuda12x</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install cupy-cuda13x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then use the typed <code>demeaner</code> API for GPU execution:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pf.feols(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Y ~ X1 | f1 + f2"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>data,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    demeaner<span class="op">=</span>pf.LsmrDemeaner(backend<span class="op">=</span><span class="st">"cupy"</span>, precision<span class="op">=</span><span class="st">"float32"</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</section>
+<section id="quickstart" class="level2">
+<h2 class="anchored" data-anchor-id="quickstart">Quickstart</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyfixest <span class="im">as</span> pf</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pf.get_data()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>pf.feols(<span class="st">"Y ~ X1 | f1 + f2"</span>, data<span class="op">=</span>data).summary()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>###
+
+Estimation:  OLS
+Dep. var.: Y, Fixed effects: f1+f2
+Inference:  CRV1
+Observations:  997
+
+| Coefficient   |   Estimate |   Std. Error |   t value |   Pr(&gt;|t|) |   2.5% |   97.5% |
+|:--------------|-----------:|-------------:|----------:|-----------:|-------:|--------:|
+| X1            |     -0.919 |        0.065 |   -14.057 |      0.000 | -1.053 |  -0.786 |
+---
+RMSE: 1.441   R2: 0.609   R2 Within: 0.2</code></pre>
+<p><code>PyFixest</code> also supports multiple estimation syntax:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fit <span class="op">=</span> pf.feols(<span class="st">"Y + Y2 ~ X1 | csw0(f1, f2)"</span>, data<span class="op">=</span>data, vcov<span class="op">=</span>{<span class="st">"CRV1"</span>: <span class="st">"group_id"</span>})</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fit.etable()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For more examples, see the <a href="https://pyfixest.org/quickstart.html">quickstart</a>, the <a href="https://pyfixest.org/formula-syntax.html">formula syntax tutorial</a>, and the <a href="https://pyfixest.org/poisson-glm.html">Poisson &amp; GLMs tutorial</a>.</p>
+</section>
+<section id="benchmarks" class="level2">
+<h2 class="anchored" data-anchor-id="benchmarks">Benchmarks</h2>
+<p>The DGPs follow the “simple” and “difficult” designs from the <a href="https://github.com/kylebutts/fixest_benchmarks">fixest benchmarks</a>. The figure timings for regressions with <code>k=10</code> covariates and plots the median runtime across three runs for PyFixest MAP, PyFixest within, PyFixest torch on CUDA GPU, fixest, and FixedEffectModels.jl.</p>
+<p><img src="explanation/figures/base-benchmarks/bench_readme.png" width="100%" alt="Fixed-effects OLS benchmark for k=10 comparing PyFixest MAP, PyFixest within, PyFixest torch GPU, fixest, and FixedEffectModels.jl"></p>
+<p>To reproduce the benchmarks, run the modular benchmark script:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> benchmarks/modular/benchmark_main.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For the full benchmark suite, see the <a href="https://github.com/py-econometrics/pyfixest/tree/master/benchmarks"><code>benchmarks/</code></a> directory and the note on <a href="https://github.com/py-econometrics/pyfixest/blob/master/docs/explanation/difficult-fixed-effects.md">difficult fixed effects problems</a>.</p>
+</section>
+<section id="learn-more" class="level2">
+<h2 class="anchored" data-anchor-id="learn-more">Learn More</h2>
+<ul>
+<li><a href="https://pyfixest.org/quickstart.html">Quickstart</a></li>
+<li><a href="https://pyfixest.org/reference/">Function &amp; API Reference</a></li>
+<li><a href="https://pyfixest.org/difference-in-differences.html">Difference-in-Differences</a></li>
+<li><a href="https://pyfixest.org/quantile-regression.html">Quantile Regression</a></li>
+<li><a href="https://pyfixest.org/changelog.html">Changelog</a></li>
+<li><a href="https://pyfixest.org/contributing.html">Contributing</a></li>
+</ul>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>First and foremost, we want to acknowledge <a href="https://sites.google.com/site/laurentrberge/">Laurent Bergé’s</a> formidable <a href="https://github.com/lrberge/fixest">fixest</a>, which <a href="https://youtu.be/kSQxGGA7Rr4?si=8-wTbzLPnIZQ7lYI&amp;t=576">is so good we decided to stick to its API and conventions</a> as closely as Python allows. Without <code>fixest</code>, <code>PyFixest</code> likely wouldn’t exist - or at the very least, it would look very different.</p>
+<p>For a full list of software packages and papers that have influenced PyFixest, please take a look at the <a href="https://pyfixest.org/acknowledgements.html">Acknowledgements page</a>.</p>
+<p>We thank all institutions that have funded or supported work on PyFixest!</p>
+<p><img src="figures/aai-institute-logo.svg" width="185"></p>
+</section>
+<section id="how-to-cite" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-cite">How to Cite</h2>
+<p>If you want to cite PyFixest, you can use the following BibTeX entry:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">@software{pyfixest,</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">  author  = {{The PyFixest Authors}},</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">  title   = {{pyfixest: Fast high-dimensional fixed effect estimation in Python}},</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">  year    = {2025},</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">  url     = {https://github.com/py-econometrics/pyfixest}</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="support-pyfixest" class="level2">
+<h2 class="anchored" data-anchor-id="support-pyfixest">Support PyFixest</h2>
+<p>If you enjoy using <code>PyFixest</code>, please consider donating to <a href="https://donate.givedirectly.org/dedicate">GiveDirectly</a> and dedicating your donation to <code>pyfixest.dev@gmail.com</code>. You can also leave a message through the donation form; your support and encouragement mean a lot to the developers.</p>
+</section>
+<section id="call-for-contributions" class="level2">
+<h2 class="anchored" data-anchor-id="call-for-contributions">Call for Contributions</h2>
+<p>Thanks for showing interest in contributing to <code>pyfixest</code>! We appreciate all contributions and constructive feedback, whether that be reporting bugs, requesting new features, or suggesting improvements to documentation.</p>
+<p>If you’d like to get involved, but are not yet sure how, please feel free to send us an <a href="alexander-fischer1801@t-online.de">email</a>. Some familiarity with either Python or econometrics will help, but you really don’t need to be a <code>numpy</code> core developer or have published in <a href="https://onlinelibrary.wiley.com/journal/14680262">Econometrica</a> =) We’d be more than happy to invest time to help you get started!</p>
+</section>
+<section id="contributors" class="level2">
+<h2 class="anchored" data-anchor-id="contributors">Contributors ✨</h2>
+<p>Thanks goes to these wonderful people:</p>
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+<tbody>
+<tr>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/styfenschaer"><img src="https://avatars.githubusercontent.com/u/79762922?v=4?s=40" width="40px;" alt="styfenschaer"><br><sub><b>styfenschaer</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=styfenschaer" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://www.nkeleher.com/"><img src="https://avatars.githubusercontent.com/u/5607589?v=4?s=40" width="40px;" alt="Niall Keleher"><br><sub><b>Niall Keleher</b></sub></a><br><a href="#infra-NKeleher" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/py-econometrics/pyfixest/commits?author=NKeleher" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="http://wenzhi-ding.com"><img src="https://avatars.githubusercontent.com/u/30380959?v=4?s=40" width="40px;" alt="Wenzhi Ding"><br><sub><b>Wenzhi Ding</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=Wenzhi-Ding" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://apoorvalal.github.io/"><img src="https://avatars.githubusercontent.com/u/12086926?v=4?s=40" width="40px;" alt="Apoorva Lal"><br><sub><b>Apoorva Lal</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=apoorvalal" title="Code">💻</a> <a href="https://github.com/py-econometrics/pyfixest/issues?q=author%3Aapoorvalal" title="Bug reports">🐛</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://juanitorduz.github.io"><img src="https://avatars.githubusercontent.com/u/22996444?v=4?s=40" width="40px;" alt="Juan Orduz"><br><sub><b>Juan Orduz</b></sub></a><br><a href="#infra-juanitorduz" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/py-econometrics/pyfixest/commits?author=juanitorduz" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://s3alfisc.github.io/"><img src="https://avatars.githubusercontent.com/u/19531450?v=4?s=40" width="40px;" alt="Alexander Fischer"><br><sub><b>Alexander Fischer</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=s3alfisc" title="Code">💻</a> <a href="#infra-s3alfisc" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="http://www.aeturrell.com"><img src="https://avatars.githubusercontent.com/u/11294320?v=4?s=40" width="40px;" alt="aeturrell"><br><sub><b>aeturrell</b></sub></a><br><a href="#tutorial-aeturrell" title="Tutorials">✅</a> <a href="https://github.com/py-econometrics/pyfixest/commits?author=aeturrell" title="Documentation">📖</a> <a href="#promotion-aeturrell" title="Promotion">📣</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/leostimpfle"><img src="https://avatars.githubusercontent.com/u/31652181?v=4?s=40" width="40px;" alt="leostimpfle"><br><sub><b>leostimpfle</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=leostimpfle" title="Code">💻</a> <a href="https://github.com/py-econometrics/pyfixest/issues?q=author%3Aleostimpfle" title="Bug reports">🐛</a>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/baggiponte"><img src="https://avatars.githubusercontent.com/u/57922983?v=4?s=40" width="40px;" alt="baggiponte"><br><sub><b>baggiponte</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=baggiponte" title="Documentation">📖</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/sanskriti2005"><img src="https://avatars.githubusercontent.com/u/150411024?v=4?s=40" width="40px;" alt="Sanskriti"><br><sub><b>Sanskriti</b></sub></a><br><a href="#infra-sanskriti2005" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/Jayhyung"><img src="https://avatars.githubusercontent.com/u/40373774?v=4?s=40" width="40px;" alt="Jaehyung"><br><sub><b>Jaehyung</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=Jayhyung" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="http://alexstephenson.me"><img src="https://avatars.githubusercontent.com/u/24926205?v=4?s=40" width="40px;" alt="Alex"><br><sub><b>Alex</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=asteves" title="Documentation">📖</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/greenguy33"><img src="https://avatars.githubusercontent.com/u/8525718?v=4?s=40" width="40px;" alt="Hayden Freedman"><br><sub><b>Hayden Freedman</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=greenguy33" title="Code">💻</a> <a href="https://github.com/py-econometrics/pyfixest/commits?author=greenguy33" title="Documentation">📖</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/saidamir"><img src="https://avatars.githubusercontent.com/u/20246711?v=4?s=40" width="40px;" alt="Aziz Mamatov"><br><sub><b>Aziz Mamatov</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=saidamir" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/rafimikail"><img src="https://avatars.githubusercontent.com/u/61386867?v=4?s=40" width="40px;" alt="rafimikail"><br><sub><b>rafimikail</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=rafimikail" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://www.linkedin.com/in/benjamin-knight/"><img src="https://avatars.githubusercontent.com/u/12180931?v=4?s=40" width="40px;" alt="Benjamin Knight"><br><sub><b>Benjamin Knight</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=b-knight" title="Code">💻</a>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="12.5%">
+<a href="https://dsliwka.github.io/"><img src="https://avatars.githubusercontent.com/u/49401450?v=4?s=40" width="40px;" alt="Dirk Sliwka"><br><sub><b>Dirk Sliwka</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=dsliwka" title="Code">💻</a> <a href="https://github.com/py-econometrics/pyfixest/commits?author=dsliwka" title="Documentation">📖</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/daltonm-bls"><img src="https://avatars.githubusercontent.com/u/78225214?v=4?s=40" width="40px;" alt="daltonm-bls"><br><sub><b>daltonm-bls</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/issues?q=author%3Adaltonm-bls" title="Bug reports">🐛</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/marcandre259"><img src="https://avatars.githubusercontent.com/u/19809475?v=4?s=40" width="40px;" alt="Marc-André"><br><sub><b>Marc-André</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=marcandre259" title="Code">💻</a> <a href="https://github.com/py-econometrics/pyfixest/issues?q=author%3Amarcandre259" title="Bug reports">🐛</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/kylebutts"><img src="https://avatars.githubusercontent.com/u/19961439?v=4?s=40" width="40px;" alt="Kyle F Butts"><br><sub><b>Kyle F Butts</b></sub></a><br><a href="#data-kylebutts" title="Data">🔣</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://fosstodon.org/@marcogorelli"><img src="https://avatars.githubusercontent.com/u/33491632?v=4?s=40" width="40px;" alt="Marco Edward Gorelli"><br><sub><b>Marco Edward Gorelli</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/pulls?q=is%3Apr+reviewed-by%3AMarcoGorelli" title="Reviewed Pull Requests">👀</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="http://arelbundock.com"><img src="https://avatars.githubusercontent.com/u/987057?v=4?s=40" width="40px;" alt="Vincent Arel-Bundock"><br><sub><b>Vincent Arel-Bundock</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=vincentarelbundock" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/IshwaraHegde97"><img src="https://avatars.githubusercontent.com/u/187858441?v=4?s=40" width="40px;" alt="IshwaraHegde97"><br><sub><b>IshwaraHegde97</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=IshwaraHegde97" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/RoyalTS"><img src="https://avatars.githubusercontent.com/u/702580?v=4?s=40" width="40px;" alt="Tobias Schmidt"><br><sub><b>Tobias Schmidt</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=RoyalTS" title="Documentation">📖</a>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/escherpf"><img src="https://avatars.githubusercontent.com/u/3789736?v=4?s=40" width="40px;" alt="escherpf"><br><sub><b>escherpf</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/issues?q=author%3Aescherpf" title="Bug reports">🐛</a> <a href="https://github.com/py-econometrics/pyfixest/commits?author=escherpf" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="http://www.ivanhigueram.com"><img src="https://avatars.githubusercontent.com/u/9004403?v=4?s=40" width="40px;" alt="Iván Higuera Mendieta"><br><sub><b>Iván Higuera Mendieta</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=ivanhigueram" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/adamvig96"><img src="https://avatars.githubusercontent.com/u/52835042?v=4?s=40" width="40px;" alt="Ádám Vig"><br><sub><b>Ádám Vig</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=adamvig96" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="http://szymon.info"><img src="https://avatars.githubusercontent.com/u/13162607?v=4?s=40" width="40px;" alt="Szymon Sacher"><br><sub><b>Szymon Sacher</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=elchorro" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/AronNemeth"><img src="https://avatars.githubusercontent.com/u/96979880?v=4?s=40" width="40px;" alt="AronNemeth"><br><sub><b>AronNemeth</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=AronNemeth" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/DTchebotarev"><img src="https://avatars.githubusercontent.com/u/6100882?v=4?s=40" width="40px;" alt="Dmitri Tchebotarev"><br><sub><b>Dmitri Tchebotarev</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=DTchebotarev" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/FuZhiyu"><img src="https://avatars.githubusercontent.com/u/11523699?v=4?s=40" width="40px;" alt="FuZhiyu"><br><sub><b>FuZhiyu</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/issues?q=author%3AFuZhiyu" title="Bug reports">🐛</a> <a href="https://github.com/py-econometrics/pyfixest/commits?author=FuZhiyu" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="http://www.marceloortizm.com"><img src="https://avatars.githubusercontent.com/u/70643379?v=4?s=40" width="40px;" alt="Marcelo Ortiz M."><br><sub><b>Marcelo Ortiz M.</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=mortizm1988" title="Documentation">📖</a>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/jestover"><img src="https://avatars.githubusercontent.com/u/11298484?v=4?s=40" width="40px;" alt="Joseph Stover"><br><sub><b>Joseph Stover</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=jestover" title="Documentation">📖</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/JaapCTJ"><img src="https://avatars.githubusercontent.com/u/157970664?v=4?s=40" width="40px;" alt="JaapCTJ"><br><sub><b>JaapCTJ</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=JaapCTJ" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="http://shapiromh.com"><img src="https://avatars.githubusercontent.com/u/2327833?v=4?s=40" width="40px;" alt="Matt Shapiro"><br><sub><b>Matt Shapiro</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=shapiromh" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/schroedk"><img src="https://avatars.githubusercontent.com/u/38397037?v=4?s=40" width="40px;" alt="Kristof Schröder"><br><sub><b>Kristof Schröder</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=schroedk" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/WiktorTheScriptor"><img src="https://avatars.githubusercontent.com/u/162815872?v=4?s=40" width="40px;" alt="Wiktor "><br><sub><b>Wiktor </b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=WiktorTheScriptor" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://damandhaliwal.me"><img src="https://avatars.githubusercontent.com/u/48694192?v=4?s=40" width="40px;" alt="Daman Dhaliwal"><br><sub><b>Daman Dhaliwal</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=damandhaliwal" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://markkaj.github.io/"><img src="https://avatars.githubusercontent.com/u/24573803?v=4?s=40" width="40px;" alt="Jaakko Markkanen"><br><sub><b>Jaakko Markkanen</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/issues?q=author%3Amarkkaj" title="Bug reports">🐛</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://jsr-p.github.io/"><img src="https://avatars.githubusercontent.com/u/49307119?v=4?s=40" width="40px;" alt="Jonas Skjold Raaschou-Pedersen"><br><sub><b>Jonas Skjold Raaschou-Pedersen</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=jsr-p" title="Code">💻</a> <a href="https://github.com/py-econometrics/pyfixest/commits?author=jsr-p" title="Documentation">📖</a>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="12.5%">
+<a href="http://bobbyho.me"><img src="https://avatars.githubusercontent.com/u/10739091?v=4?s=40" width="40px;" alt="Bobby Ho"><br><sub><b>Bobby Ho</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=bobby1030" title="Documentation">📖</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/Erica-Ryan"><img src="https://avatars.githubusercontent.com/u/27149581?v=4?s=40" width="40px;" alt="Erica Ryan"><br><sub><b>Erica Ryan</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=Erica-Ryan" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/souhil25"><img src="https://avatars.githubusercontent.com/u/185626340?v=4?s=40" width="40px;" alt="Souhil Abdelmalek Louddad"><br><sub><b>Souhil Abdelmalek Louddad</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=souhil25" title="Documentation">📖</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="http://dpananos.github.io"><img src="https://avatars.githubusercontent.com/u/20362941?v=4?s=40" width="40px;" alt="Demetri Pananos"><br><sub><b>Demetri Pananos</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=Dpananos" title="Code">💻</a> <a href="https://github.com/py-econometrics/pyfixest/pulls?q=is%3Apr+reviewed-by%3ADpananos" title="Reviewed Pull Requests">👀</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/pdoupe"><img src="https://avatars.githubusercontent.com/u/215010049?v=4?s=40" width="40px;" alt="Patrick Doupe"><br><sub><b>Patrick Doupe</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=pdoupe" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="http://www.linkedin.com/in/ariadnaaz/"><img src="https://avatars.githubusercontent.com/u/35080247?v=4?s=40" width="40px;" alt="Ariadna Albors Zumel"><br><sub><b>Ariadna Albors Zumel</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=Ariadnaaz" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/blucap"><img src="https://avatars.githubusercontent.com/u/614800?v=4?s=40" width="40px;" alt="Martien Lubberink"><br><sub><b>Martien Lubberink</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=blucap" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/jonpcohen"><img src="https://avatars.githubusercontent.com/u/48955223?v=4?s=40" width="40px;" alt="jonpcohen"><br><sub><b>jonpcohen</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=jonpcohen" title="Documentation">📖</a>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/rhstanton"><img src="https://avatars.githubusercontent.com/u/2153614?v=4?s=40" width="40px;" alt="rhstanton"><br><sub><b>rhstanton</b></sub></a><br><a href="#userTesting-rhstanton" title="User Testing">📓</a> <a href="https://github.com/py-econometrics/pyfixest/issues?q=author%3Arhstanton" title="Bug reports">🐛</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://github.com/mdizadi"><img src="https://avatars.githubusercontent.com/u/16979129?v=4?s=40" width="40px;" alt="mdizadi"><br><sub><b>mdizadi</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=mdizadi" title="Documentation">📖</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://tmensinger.com"><img src="https://avatars.githubusercontent.com/u/39708667?v=4?s=40" width="40px;" alt="Tim Mensinger"><br><sub><b>Tim Mensinger</b></sub></a><br><a href="#infra-timmens" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://nicholasjunge.com"><img src="https://avatars.githubusercontent.com/u/54248170?v=4?s=40" width="40px;" alt="Nicholas Junge"><br><sub><b>Nicholas Junge</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=nicholasjng" title="Code">💻</a> <a href="#infra-nicholasjng" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="https://portfolio-abelaba.vercel.app/"><img src="https://avatars.githubusercontent.com/u/61546411?v=4?s=40" width="40px;" alt="Abel Abate"><br><sub><b>Abel Abate</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=abelaba" title="Code">💻</a>
+</td>
+<td align="center" valign="top" width="12.5%">
+<a href="http://janfb.github.io"><img src="https://avatars.githubusercontent.com/u/11921527?v=4?s=40" width="40px;" alt="Jan Teusen (né Boelts)"><br><sub><b>Jan Teusen (né Boelts)</b></sub></a><br><a href="https://github.com/py-econometrics/pyfixest/commits?author=janfb" title="Code">💻</a>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+<p>This project follows the <a href="https://github.com/all-contributors/all-contributors">all-contributors</a> specification. Contributions of any kind welcome!</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
