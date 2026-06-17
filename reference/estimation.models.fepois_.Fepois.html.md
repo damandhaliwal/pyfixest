@@ -15,6 +15,7 @@ estimation.models.fepois_.Fepois(
     maxiter,
     solver='np.linalg.solve',
     demeaner=None,
+    lookup_preconditioner=None,
     context=0,
     store_data=True,
     copy_data=True,
@@ -31,7 +32,7 @@ Estimate a Poisson regression model.
 Non user-facing class to estimate a Poisson regression model via Iterated
 Weighted Least Squares (IWLS).
 
-Inherits from the Feols class. Users should not directly instantiate this class,
+Inherits from the Feglm class. Users should not directly instantiate this class,
 but rather use the [fepois()](/reference/estimation.api.fepois.fepois.qmd) function.
 Note that no demeaning is performed in this class: demeaning is performed in the
 FixestMulti class (to allow for caching of demeaned variables for multiple estimation).
@@ -51,7 +52,7 @@ The method implements the algorithm from Stata's `ppmlhdfe` module.
 | collin_tol      | float                            | Tolerance level for the detection of collinearity.                                                                                                                                                                                                                   |
 | maxiter         | Optional\[int\], default=25      | Maximum number of iterations for the IRLS algorithm.                                                                                                                                                                                                                 |
 | tol             | Optional\[float\], default=1e-08 | Tolerance level for the convergence of the IRLS algorithm.                                                                                                                                                                                                           |
-| solver          | str, optional.                   | The solver to use for the regression. Can be "np.linalg.lstsq", "np.linalg.solve", "scipy.linalg.solve", "scipy.sparse.linalg.lsqr" and "jax". Defaults to "scipy.linalg.solve".                                                                                     |
+| solver          | str, optional.                   | The solver to use for the regression. Can be "np.linalg.lstsq", "np.linalg.solve", "scipy.linalg.solve" and "scipy.sparse.linalg.lsqr". Defaults to "scipy.linalg.solve".                                                                                            |
 | demeaner        | Optional\[AnyDemeaner\]          | Resolved typed demeaner configuration.                                                                                                                                                                                                                               |
 | fixef_tol       | float, default = 1e-06.          | Tolerance level for the convergence of the demeaning algorithm.                                                                                                                                                                                                      |
 | context         | int or Mapping\[str, Any\]       | A dictionary containing additional context variables to be used by formulaic during the creation of the model matrix. This can include custom factorization functions, transformations, or any other variables that need to be available in the formula environment. |
@@ -63,11 +64,8 @@ The method implements the algorithm from Stata's `ppmlhdfe` module.
 
 | Name | Description |
 | --- | --- |
-| [get_fit](#pyfixest.estimation.models.fepois_.Fepois.get_fit) | Fit a Poisson Regression Model via Iterated Weighted Least Squares (IWLS). |
+| [get_fit](#pyfixest.estimation.models.fepois_.Fepois.get_fit) | Fit via Feglm IRLS, then add Poisson-specific post-fit summary stats. |
 | [predict](#pyfixest.estimation.models.fepois_.Fepois.predict) | Return predicted values from regression model. |
-| [prepare_model_matrix](#pyfixest.estimation.models.fepois_.Fepois.prepare_model_matrix) | Prepare model inputs for estimation. |
-| [resid](#pyfixest.estimation.models.fepois_.Fepois.resid) | Return residuals from regression model. |
-| [to_array](#pyfixest.estimation.models.fepois_.Fepois.to_array) | Turn estimation DataFrames to np arrays. |
 
 ### get_fit { #pyfixest.estimation.models.fepois_.Fepois.get_fit }
 
@@ -75,25 +73,7 @@ The method implements the algorithm from Stata's `ppmlhdfe` module.
 estimation.models.fepois_.Fepois.get_fit()
 ```
 
-Fit a Poisson Regression Model via Iterated Weighted Least Squares (IWLS).
-
-#### Returns {.doc-section .doc-section-returns}
-
-| Name   | Type   | Description   |
-|--------|--------|---------------|
-|        | None   |               |
-
-#### Attributes {.doc-section .doc-section-attributes}
-
-| Name     | Type       | Description                                                                     |
-|----------|------------|---------------------------------------------------------------------------------|
-| beta_hat | np.ndarray | Estimated coefficients.                                                         |
-| Y_hat    | np.ndarray | Estimated dependent variable.                                                   |
-| u_hat    | np.ndarray | Estimated residuals.                                                            |
-| weights  | np.ndarray | Weights (from the last iteration of the IRLS algorithm).                        |
-| X        | np.ndarray | Demeaned independent variables (from the last iteration of the IRLS algorithm). |
-| Z        | np.ndarray | Demeaned independent variables (from the last iteration of the IRLS algorithm). |
-| Y        | np.ndarray | Demeaned dependent variable (from the last iteration of the IRLS algorithm).    |
+Fit via Feglm IRLS, then add Poisson-specific post-fit summary stats.
 
 ### predict { #pyfixest.estimation.models.fepois_.Fepois.predict }
 
@@ -135,39 +115,3 @@ will be set to NaN.
 | Name   | Type                              | Description                                                                                                                                                                                                                        |
 |--------|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |        | Union\[np.ndarray, pd.DataFrame\] | Returns a pd.Dataframe with columns "fit", "se_fit" and CIs if argument "interval=prediction". Otherwise, returns a np.ndarray with the predicted values of the model or the prediction standard errors if argument "se_fit=True". |
-
-### prepare_model_matrix { #pyfixest.estimation.models.fepois_.Fepois.prepare_model_matrix }
-
-```python
-estimation.models.fepois_.Fepois.prepare_model_matrix()
-```
-
-Prepare model inputs for estimation.
-
-### resid { #pyfixest.estimation.models.fepois_.Fepois.resid }
-
-```python
-estimation.models.fepois_.Fepois.resid(type='response')
-```
-
-Return residuals from regression model.
-
-#### Parameters {.doc-section .doc-section-parameters}
-
-| Name   | Type   | Description                                                                            | Default      |
-|--------|--------|----------------------------------------------------------------------------------------|--------------|
-| type   | str    | The type of residuals to be computed. Can be either "response" (default) or "working". | `'response'` |
-
-#### Returns {.doc-section .doc-section-returns}
-
-| Name   | Type       | Description                                              |
-|--------|------------|----------------------------------------------------------|
-|        | np.ndarray | A flat array with the residuals of the regression model. |
-
-### to_array { #pyfixest.estimation.models.fepois_.Fepois.to_array }
-
-```python
-estimation.models.fepois_.Fepois.to_array()
-```
-
-Turn estimation DataFrames to np arrays.

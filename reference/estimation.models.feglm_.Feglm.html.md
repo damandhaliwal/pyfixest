@@ -14,7 +14,9 @@ estimation.models.feglm_.Feglm(
     tol,
     maxiter,
     solver,
+    family,
     demeaner=None,
+    lookup_preconditioner=None,
     store_data=True,
     copy_data=True,
     lean=False,
@@ -26,15 +28,16 @@ estimation.models.feglm_.Feglm(
 )
 ```
 
-Abstract base class for the estimation of a fixed-effects GLM model.
+Base class for the estimation of a fixed-effects GLM model.
 
 ## Methods
 
 | Name | Description |
 | --- | --- |
-| [get_fit](#pyfixest.estimation.models.feglm_.Feglm.get_fit) | Fit the GLM model via iterated weighted least squares. |
+| [get_fit](#pyfixest.estimation.models.feglm_.Feglm.get_fit) | Fit the GLM via IRLS and write results onto self.* attributes. |
 | [predict](#pyfixest.estimation.models.feglm_.Feglm.predict) | Return predicted values from regression model. |
 | [prepare_model_matrix](#pyfixest.estimation.models.feglm_.Feglm.prepare_model_matrix) | Prepare model inputs for estimation. |
+| [resid](#pyfixest.estimation.models.feglm_.Feglm.resid) | Return residuals from a fitted GLM. |
 | [residualize](#pyfixest.estimation.models.feglm_.Feglm.residualize) | Residualize v and X by flist using weights. |
 | [to_array](#pyfixest.estimation.models.feglm_.Feglm.to_array) | Turn estimation DataFrames to np arrays. |
 
@@ -44,12 +47,7 @@ Abstract base class for the estimation of a fixed-effects GLM model.
 estimation.models.feglm_.Feglm.get_fit()
 ```
 
-Fit the GLM model via iterated weighted least squares.
-
-The implementation follows ideas developed in
-- Bergé (2018): https://ideas.repec.org/p/luc/wpaper/18-13.html
-- Correia, Guimaraes, Zylkin (2019): https://journals.sagepub.com/doi/pdf/10.1177/1536867X20909691
-- Stamann (2018): https://arxiv.org/pdf/1707.01815
+Fit the GLM via IRLS and write results onto self.* attributes.
 
 ### predict { #pyfixest.estimation.models.feglm_.Feglm.predict }
 
@@ -99,6 +97,26 @@ estimation.models.feglm_.Feglm.prepare_model_matrix()
 ```
 
 Prepare model inputs for estimation.
+
+### resid { #pyfixest.estimation.models.feglm_.Feglm.resid }
+
+```python
+estimation.models.feglm_.Feglm.resid(type='response')
+```
+
+Return residuals from a fitted GLM.
+
+#### Parameters {.doc-section .doc-section-parameters}
+
+| Name   | Type   | Description                                                                | Default      |
+|--------|--------|----------------------------------------------------------------------------|--------------|
+| type   | str    | The type of residuals to return. Either "response" (default) or "working". | `'response'` |
+
+#### Returns {.doc-section .doc-section-returns}
+
+| Name   | Type       | Description                                |
+|--------|------------|--------------------------------------------|
+|        | np.ndarray | A flat array with the requested residuals. |
 
 ### residualize { #pyfixest.estimation.models.feglm_.Feglm.residualize }
 

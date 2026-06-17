@@ -26,17 +26,15 @@ Details on Methods and Attributes
 | | |
 | --- | --- |
 | [demeaners.BaseDemeaner](demeaners.BaseDemeaner.qmd#pyfixest.demeaners.BaseDemeaner) | Base configuration shared by all fixed-effects demeaners. |
-| [demeaners.MapDemeaner](demeaners.MapDemeaner.qmd#pyfixest.demeaners.MapDemeaner) | Alternating-projections demeaner with selectable implementation backend. |
-| [demeaners.WithinDemeaner](demeaners.WithinDemeaner.qmd#pyfixest.demeaners.WithinDemeaner) | Demeaner configuration for the Rust `within` backend. |
-| [demeaners.LsmrDemeaner](demeaners.LsmrDemeaner.qmd#pyfixest.demeaners.LsmrDemeaner) | Sparse LSMR demeaner for CuPy/SciPy and PyTorch backends. |
+| [demeaners.MapDemeaner](demeaners.MapDemeaner.qmd#pyfixest.demeaners.MapDemeaner) | Method of Alternating Projections (MAP) demeaner. |
+| [demeaners.LsmrDemeaner](demeaners.LsmrDemeaner.qmd#pyfixest.demeaners.LsmrDemeaner) | Sparse LSMR demeaner. |
 | [estimation.models.feols_.Feols](estimation.models.feols_.Feols.qmd#pyfixest.estimation.models.feols_.Feols) | Non user-facing class to estimate a linear regression via OLS. |
 | [estimation.models.fepois_.Fepois](estimation.models.fepois_.Fepois.qmd#pyfixest.estimation.models.fepois_.Fepois) | Estimate a Poisson regression model. |
 | [estimation.models.feiv_.Feiv](estimation.models.feiv_.Feiv.qmd#pyfixest.estimation.models.feiv_.Feiv) | Non user-facing class to estimate an IV model using a 2SLS estimator. |
-| [estimation.models.feglm_.Feglm](estimation.models.feglm_.Feglm.qmd#pyfixest.estimation.models.feglm_.Feglm) | Abstract base class for the estimation of a fixed-effects GLM model. |
+| [estimation.models.feglm_.Feglm](estimation.models.feglm_.Feglm.qmd#pyfixest.estimation.models.feglm_.Feglm) | Base class for the estimation of a fixed-effects GLM model. |
 | [estimation.models.felogit_.Felogit](estimation.models.felogit_.Felogit.qmd#pyfixest.estimation.models.felogit_.Felogit) | Class for the estimation of a fixed-effects logit model. |
 | [estimation.models.feprobit_.Feprobit](estimation.models.feprobit_.Feprobit.qmd#pyfixest.estimation.models.feprobit_.Feprobit) | Class for the estimation of a fixed-effects probit model. |
 | [estimation.models.fegaussian_.Fegaussian](estimation.models.fegaussian_.Fegaussian.qmd#pyfixest.estimation.models.fegaussian_.Fegaussian) | Class for the estimation of a fixed-effects GLM with normal errors. |
-| [estimation.models.feols_compressed_.FeolsCompressed](estimation.models.feols_compressed_.FeolsCompressed.qmd#pyfixest.estimation.models.feols_compressed_.FeolsCompressed) | Non-user-facing class for compressed regression with fixed effects. |
 | [estimation.FixestMulti_.FixestMulti](estimation.FixestMulti_.FixestMulti.qmd#pyfixest.estimation.FixestMulti_.FixestMulti) | A class to estimate multiple regression models with fixed effects. |
 | [estimation.quantreg.quantreg_.Quantreg](estimation.quantreg.quantreg_.Quantreg.qmd#pyfixest.estimation.quantreg.quantreg_.Quantreg) | Quantile regression model. |
 
@@ -72,7 +70,7 @@ PyFixest internals and utilities
 
 | | |
 | --- | --- |
-| [estimation.internals.demean_.demean](estimation.internals.demean_.demean.qmd#pyfixest.estimation.internals.demean_.demean) | Demean an array. |
+| [estimation.demean](estimation.demean.qmd#pyfixest.estimation.demean) | Demean an array. |
 | [core.detect_singletons.detect_singletons](core.detect_singletons.detect_singletons.qmd#pyfixest.core.detect_singletons.detect_singletons) | Detect singleton fixed effects in a dataset. |
 | [utils.utils.ssc](utils.utils.ssc.qmd#pyfixest.utils.utils.ssc) | Set the small sample correction factor applied in `get_ssc()`. |
 | [utils.utils.get_ssc](utils.utils.get_ssc.qmd#pyfixest.utils.utils.get_ssc) | Compute small sample adjustment factors. |
