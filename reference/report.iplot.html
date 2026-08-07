@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>report.iplot</title>
+<title>report.iplot – PyFixest</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -67,15 +70,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cfcfe67ccc355da2daa362a566858c05.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-eb3f3667ffc7f694651b946ca6825714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,7 +111,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<link rel="alternate" type="text/markdown" href="report.iplot.html.md">
 </head>
 
 <body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
@@ -118,16 +119,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">PyFixest</span>
+    </a>
+  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../pyfixest.html"> 
-<span class="menu-text">PyFixest</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../getting-started.html"> 
 <span class="menu-text">Getting Started</span></a>
@@ -191,6 +193,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Marginal Effects &amp; Hypothesis Testing</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../how-to/anytime-valid-inference.html">
+ <span class="dropdown-text">When to Use Anytime-Valid Inference</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../how-to/regression_decomposition.html">
  <span class="dropdown-text">Regression Decomposition</span></a>
   </li>  
@@ -220,6 +226,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../explanation/compare-fixest-pyfixest.html">
  <span class="dropdown-text">Does PyFixest Match fixest?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../explanation/blog-posts.html">
+ <span class="dropdown-text">Case Studies &amp; Blog Posts</span></a>
   </li>  
     </ul>
   </li>
@@ -290,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/did.visualize.panelview.html">Summarize and Visualize</a></li><li class="breadcrumb-item"><a href="../reference/report.iplot.html">report.iplot</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/report.summary.html">Summarize and Visualize</a></li><li class="breadcrumb-item"><a href="../reference/report.iplot.html">iplot</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -311,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Estimation Functions</span></a>
+ <span class="menu-text">Estimation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -320,61 +330,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../reference/estimation.api.feols.feols.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.api.feols.feols</span></a>
+ <span class="menu-text">feols</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../reference/estimation.api.fepois.fepois.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.api.fepois.fepois</span></a>
+ <span class="menu-text">fepois</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../reference/estimation.api.feglm.feglm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.api.feglm.feglm</span></a>
+ <span class="menu-text">feglm</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../reference/estimation.api.quantreg.quantreg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.api.quantreg.quantreg</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/did.estimation.did2s.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">did.estimation.did2s</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/did.estimation.lpdid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">did.estimation.lpdid</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/did.estimation.event_study.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">did.estimation.event_study</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.post_estimation.multcomp.bonferroni.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.post_estimation.multcomp.bonferroni</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.post_estimation.multcomp.rwolf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.post_estimation.multcomp.rwolf</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.post_estimation.multcomp.wyoung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.post_estimation.multcomp.wyoung</span></a>
+ <span class="menu-text">quantreg</span></a>
   </div>
 </li>
       </ul>
@@ -382,7 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Estimation Classes</span></a>
+ <span class="menu-text">Difference-in-Differences</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -390,74 +364,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/demeaners.BaseDemeaner.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">demeaners.BaseDemeaner</span></a>
+  <a href="../reference/did.estimation.event_study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">event_study</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/demeaners.MapDemeaner.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">demeaners.MapDemeaner</span></a>
+  <a href="../reference/did.estimation.did2s.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">did2s</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/demeaners.LsmrDemeaner.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">demeaners.LsmrDemeaner</span></a>
+  <a href="../reference/did.estimation.lpdid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">lpdid</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.models.feols_.Feols.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.models.feols_.Feols</span></a>
+  <a href="../reference/did.saturated_twfe.SaturatedEventStudy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SaturatedEventStudy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.models.fepois_.Fepois.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.models.fepois_.Fepois</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.models.feiv_.Feiv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.models.feiv_.Feiv</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.models.feglm_.Feglm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.models.feglm_.Feglm</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.models.felogit_.Felogit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.models.felogit_.Felogit</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.models.feprobit_.Feprobit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.models.feprobit_.Feprobit</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.models.fegaussian_.Fegaussian.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.models.fegaussian_.Fegaussian</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.FixestMulti_.FixestMulti.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.FixestMulti_.FixestMulti</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.quantreg.quantreg_.Quantreg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.quantreg.quantreg_.Quantreg</span></a>
+  <a href="../reference/did.visualize.panelview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">panelview</span></a>
   </div>
 </li>
       </ul>
@@ -465,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Summarize and Visualize</span></a>
+ <span class="menu-text">Multiple Hypothesis Testing</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -473,38 +405,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/did.visualize.panelview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">did.visualize.panelview</span></a>
+  <a href="../reference/estimation.post_estimation.multcomp.bonferroni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">bonferroni</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/report.summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">report.summary</span></a>
+  <a href="../reference/estimation.post_estimation.multcomp.rwolf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">rwolf</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/report.etable.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">report.etable</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/report.dtable.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">report.dtable</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/report.coefplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">report.coefplot</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/report.iplot.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">report.iplot</span></a>
+  <a href="../reference/estimation.post_estimation.multcomp.wyoung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">wyoung</span></a>
   </div>
 </li>
       </ul>
@@ -512,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Formula Parsing &amp; Model Matrix</span></a>
+ <span class="menu-text">Estimation Classes</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -520,20 +434,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.formula.parse.Formula.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.formula.parse.Formula</span></a>
+  <a href="../reference/estimation.models.feols_.Feols.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.formula.model_matrix.ModelMatrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.formula.model_matrix.ModelMatrix</span></a>
+  <a href="../reference/estimation.models.fepois_.Fepois.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fepois</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.formula.factor_interaction.factor_interaction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.formula.factor_interaction.factor_interaction</span></a>
+  <a href="../reference/estimation.models.feiv_.Feiv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feiv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feglm_.Feglm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feglm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.FixestMulti_.FixestMulti.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FixestMulti</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.quantreg.quantreg_.Quantreg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quantreg</span></a>
   </div>
 </li>
       </ul>
@@ -541,7 +473,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Misc / Utilities</span></a>
+ <span class="menu-text">Post-Estimation Methods</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -549,32 +481,321 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.demean.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.demean</span></a>
+  <a href="../reference/estimation.models.feols_.Feols.tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.tidy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.coef.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.coef</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.se.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.se</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.tstat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.tstat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.pvalue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.pvalue</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.confint.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.confint</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.resid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.resid</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.vcov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.vcov</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.predict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.predict</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.fixef.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.fixef</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.get_performance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.get_performance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.wald_test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.wald_test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.wildboottest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.wildboottest</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.ritest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.ritest</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.ccv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.ccv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.decompose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.decompose</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.update.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.update</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.evalue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.evalue</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.models.feols_.Feols.pvalue_savi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feols.pvalue_savi</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Summarize and Visualize</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/report.summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/report.etable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">etable</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/report.coefplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">coefplot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/report.iplot.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">iplot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/report.qplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">qplot</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Sets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/utils.utils.get_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">get_data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/utils.dgps.get_ivf_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">get_ivf_data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/utils.dgps.get_bartik_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">get_bartik_data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/utils.dgps.get_encouragement_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">get_encouragement_data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/utils.dgps.get_twin_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">get_twin_data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/utils.dgps.get_worker_panel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">get_worker_panel</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/utils.dgps.get_motherhood_event_study_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">get_motherhood_event_study_data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Formula Parsing &amp; Model Matrix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.formula.parse.Formula.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formula</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.formula.model_matrix.create_model_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">create_model_matrix</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.formula.model_matrix.ModelMatrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ModelMatrix</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.formula.transforms.factor_interaction.factor_interaction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">factor_interaction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Demeaning</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.demean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">demean</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/demeaners.BaseDemeaner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BaseDemeaner</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/demeaners.MapDemeaner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MapDemeaner</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/demeaners.LsmrDemeaner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LsmrDemeaner</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/core.demean.Preconditioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preconditioner</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Misc / Utilities</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../reference/core.detect_singletons.detect_singletons.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">core.detect_singletons.detect_singletons</span></a>
+ <span class="menu-text">detect_singletons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../reference/utils.utils.ssc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">utils.utils.ssc</span></a>
+ <span class="menu-text">ssc</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../reference/utils.utils.get_ssc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">utils.utils.get_ssc</span></a>
+ <span class="menu-text">get_ssc</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.deprecated.model_matrix_fixest_.model_matrix_fixest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.deprecated.model_matrix_fixest_.model_matrix_fixest</span></a>
+  <a href="../reference/estimation.post_estimation.savi.optimal_mixture_precision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">optimal_mixture_precision</span></a>
   </div>
 </li>
       </ul>
@@ -588,9 +809,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/did.visualize.panelview.html">Summarize and Visualize</a></li><li class="breadcrumb-item"><a href="../reference/report.iplot.html">report.iplot</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/report.summary.html">Summarize and Visualize</a></li><li class="breadcrumb-item"><a href="../reference/report.iplot.html">iplot</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">report.iplot</h1>
+<h1 class="title">iplot</h1>
 </div>
 
 
@@ -607,7 +828,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>report.iplot(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>iplot(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    models,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.05</span>,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span><span class="va">None</span>,</span>
@@ -633,8 +854,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="caption-top table">
 <colgroup>
 <col style="width: 2%">
-<col style="width: 12%">
-<col style="width: 76%">
+<col style="width: 7%">
+<col style="width: 80%">
 <col style="width: 8%">
 </colgroup>
 <thead>
@@ -648,8 +869,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>models</td>
-<td>A supported model object (Feols, Fepois, Feiv, FixestMulti) or a list of</td>
-<td>Feols, Fepois &amp; Feiv models.</td>
+<td>Feols, Fepois, Feiv, FixestMulti, or list</td>
+<td>A fitted model object, or a list of Feols, Fepois, and Feiv models.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
@@ -772,7 +993,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="examples" class="level2 doc-section doc-section-examples">
 <h2 class="doc-section doc-section-examples anchored" data-anchor-id="examples">Examples</h2>
-<div id="5375da1d" class="cell" data-execution_count="1">
+<div id="76428758" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyfixest <span class="im">as</span> pf</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyfixest.report.utils <span class="im">import</span> rename_categoricals</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -805,7 +1026,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>pf.iplot([fit1], joint <span class="op">=</span> <span class="st">"both"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 
-        <div id="VEoTjP"></div>
+        <div id="du2PMJ"></div>
         <script type="text/javascript" data-lets-plot-script="library">
             if(!window.letsPlotCallQueue) {
                 window.letsPlotCallQueue = [];
@@ -829,9 +1050,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                     var div = document.createElement("div");
                     div.style.color = 'darkred';
                     div.textContent = 'Error loading Lets-Plot JS';
-                    document.getElementById("VEoTjP").appendChild(div);
+                    document.getElementById("du2PMJ").appendChild(div);
                 };
-                var e = document.getElementById("VEoTjP");
+                var e = document.getElementById("du2PMJ");
                 e.appendChild(script);
             })()
         </script>
@@ -839,7 +1060,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-display">
 
-        <div id="40lWcA"></div>
+        <div id="iU5jQn"></div>
         <script type="text/javascript" data-lets-plot-script="library">
             if(!window.letsPlotCallQueue) {
                 window.letsPlotCallQueue = [];
@@ -863,16 +1084,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                     var div = document.createElement("div");
                     div.style.color = 'darkred';
                     div.textContent = 'Error loading Lets-Plot JS';
-                    document.getElementById("40lWcA").appendChild(div);
+                    document.getElementById("iU5jQn").appendChild(div);
                 };
-                var e = document.getElementById("40lWcA");
+                var e = document.getElementById("iU5jQn");
                 e.appendChild(script);
             })()
         </script>
         
 </div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-   <div id="rHOhRI"></div>
+   <div id="hbdIcK"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
    (function() {
@@ -897,7 +1118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        };
    }
    
-   const containerDiv = document.getElementById("rHOhRI");
+   const containerDiv = document.getElementById("hbdIcK");
    let fig = null;
    
    function renderPlot() {
@@ -905,10 +1126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
            const plotSpec = {
 "data":{
 "Coefficient":["f1::1.0","f1::2.0","f1::3.0","f1::4.0","f1::5.0","f1::6.0","f1::7.0","f1::8.0","f1::9.0","f1::10.0","f1::11.0","f1::12.0","f1::13.0","f1::14.0","f1::15.0","f1::16.0","f1::17.0","f1::18.0","f1::19.0","f1::20.0","f1::21.0","f1::22.0","f1::23.0","f1::24.0","f1::25.0","f1::26.0","f1::27.0","f1::28.0","f1::29.0","f1::1.0","f1::2.0","f1::3.0","f1::4.0","f1::5.0","f1::6.0","f1::7.0","f1::8.0","f1::9.0","f1::10.0","f1::11.0","f1::12.0","f1::13.0","f1::14.0","f1::15.0","f1::16.0","f1::17.0","f1::18.0","f1::19.0","f1::20.0","f1::21.0","f1::22.0","f1::23.0","f1::24.0","f1::25.0","f1::26.0","f1::27.0","f1::28.0","f1::29.0"],
-"Estimate":[2.5442879837380574,-1.6346807837677426,-0.4639805415936461,-1.7627122198272627,1.4348086119364807,-0.8992225420858163,0.8901916963536649,-0.4708119794251299,0.08392895661938289,0.28878174380848526,1.2881639264088733,0.6873080715508445,1.804300973899594,-0.216566841893876,1.390369881952682,2.2404780654367853,-0.3263697830683038,1.65208235412021,0.588357061638443,2.791607486899846,-1.4464082114876378,-1.0659170994410552,-0.5480905346838351,-0.977560174083431,-1.701917517882292,1.075012754109475,-0.48200420903080105,1.5173786526283068,0.21151214409505475,2.5442879837380574,-1.6346807837677426,-0.4639805415936461,-1.7627122198272627,1.4348086119364807,-0.8992225420858163,0.8901916963536649,-0.4708119794251299,0.08392895661938289,0.28878174380848526,1.2881639264088733,0.6873080715508445,1.804300973899594,-0.216566841893876,1.390369881952682,2.2404780654367853,-0.3263697830683038,1.65208235412021,0.588357061638443,2.791607486899846,-1.4464082114876378,-1.0659170994410552,-0.5480905346838351,-0.977560174083431,-1.701917517882292,1.075012754109475,-0.48200420903080105,1.5173786526283068,0.21151214409505475],
-"2.5%":[1.6988810797044187,-2.521351025022357,-1.3779393065398136,-2.6556933609461764,0.47709529217549795,-1.8291701365228188,-0.009423320741524854,-1.3574822206797443,-0.7967298916533307,-0.5978884974461292,0.3885489093136837,-0.2426395228861582,0.8825710451114398,-1.1552192837893136,0.46042228751567926,1.3538078241821705,-1.2742601424462925,0.7591012130012961,-0.34159053279855967,1.962203422444106,-2.3393893526065517,-1.9301363487581429,-1.5394180012195635,-1.8771751911786208,-2.706092096577179,0.117299434348492,-1.4119518034678038,0.6675596211308424,-0.7363782152829341,1.2464261249094981,-2.995889785009696,-1.8670826642591698,-3.133609663628273,-0.03546515029482622,-2.3268705867972317,-0.4908900203279287,-1.832020980667083,-1.2680514026131264,-1.072427257433468,-0.09291779027272029,-0.7403399731605708,0.38926862319701483,-1.6575784981979098,-0.0372781627587333,0.8792690641948318,-1.7815634157654845,0.28118491031919923,-0.8392909830729722,1.518313058289813,-2.8173056552886484,-2.3926595189818682,-2.069968463864637,-2.358641890765025,-3.2435182300069165,-0.3952610081218324,-1.9096522537422165,0.2127433313117224,-1.2436814886021261],
-"97.5%":[3.389694887771696,-0.748010542513128,0.44997822335252124,-0.8697310787083488,2.3925219316974635,0.030725052351186277,1.7898067134488547,0.41585826182948454,0.9645878048920966,1.1754519850630998,2.187778943504063,1.6172556659878472,2.7260309026877483,0.7220856000015616,2.3203174763896848,3.1271483066914003,0.6215205763096849,2.5450634952391242,1.5183046560754456,3.6210115513555863,-0.5534270703687237,-0.20169785012396735,0.4432369318518934,-0.07794515698824112,-0.697742939187405,2.032726073870458,0.44794338540620177,2.367197684125771,1.1594025034730435,3.8421498425666165,-0.2734717825257893,0.9391215810718775,-0.39181477602625203,2.9050823741677876,0.528425502625599,2.2712734130352583,0.8903970218168231,1.435909315851892,1.6499907450504383,2.669245643090467,2.1149561162622597,3.2193333246021734,1.2244448144101578,2.8180179266640972,3.601687066678739,1.1288238496288772,3.022979797921221,2.0160051063498585,4.064901915509879,-0.0755107676866269,0.2608253200997579,0.9737873944969669,0.40352154259816286,-0.16031680575766782,2.5452865163407825,0.9456438356806145,2.822013973944891,1.6667057767922355],
-"Model":["Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)","Y ~ i(f1) (joint CIs)"]
+"Estimate":[2.5442879837380525,-1.6346807837677462,-0.46398054159365026,-1.7627122198272667,1.4348086119364776,-0.8992225420858201,0.8901916963536614,-0.4708119794251332,0.0839289566193797,0.2887817438084817,1.2881639264088698,0.687308071550841,1.8043009738995897,-0.21656684189387942,1.3903698819526786,2.240478065436782,-0.32636978306830733,1.6520823541202068,0.5883570616384396,2.791607486899843,-1.4464082114876404,-1.0659170994410585,-0.5480905346838385,-0.9775601740834341,-1.701917517882296,1.0750127541094714,-0.48200420903080426,1.5173786526283028,0.2115121440950514,2.5442879837380525,-1.6346807837677462,-0.46398054159365026,-1.7627122198272667,1.4348086119364776,-0.8992225420858201,0.8901916963536614,-0.4708119794251332,0.0839289566193797,0.2887817438084817,1.2881639264088698,0.687308071550841,1.8043009738995897,-0.21656684189387942,1.3903698819526786,2.240478065436782,-0.32636978306830733,1.6520823541202068,0.5883570616384396,2.791607486899843,-1.4464082114876404,-1.0659170994410585,-0.5480905346838385,-0.9775601740834341,-1.701917517882296,1.0750127541094714,-0.48200420903080426,1.5173786526283028,0.2115121440950514],
+"2.5%":[1.6988810797044143,-2.5213510250223603,-1.3779393065398173,-2.655693360946181,0.47709529217549485,-1.8291701365228226,-0.009423320741528185,-1.3574822206797474,-0.7967298916533339,-0.5978884974461325,0.38854890931368047,-0.24263952288616153,0.8825710451114356,-1.1552192837893167,0.46042228751567627,1.3538078241821678,-1.274260142446296,0.759101213001293,-0.341590532798563,1.9622034224441032,-2.3393893526065543,-1.930136348758146,-1.5394180012195666,-1.8771751911786236,-2.7060920965771826,0.11729943434848866,-1.411951803467807,0.6675596211308388,-0.7363782152829372,1.2397305081629664,-3.0029122070974132,-1.8743212112630026,-3.1406820679986245,-0.0430502330657041,-2.3342357652184154,-0.49801496494945185,-1.8390434027548004,-1.2750262145106175,-1.0794496795211852,-0.10004273489424298,-0.7477051515817544,0.38196852863009445,-1.6650126189498695,-0.04464334117991653,0.8722466421071149,-1.789070700759071,0.27411250594884917,-0.8466561614941558,1.511744183920425,-2.824378059658998,-2.39950412937101,-2.0778197704420527,-2.3657668353865473,-3.2514712856224666,-0.4028460908927103,-1.9170174321633997,0.20601277054664413,-1.2511887735957123],
+"97.5%":[3.389694887771691,-0.7480105425131318,0.44997822335251686,-0.8697310787083528,2.3925219316974604,0.03072505235118239,1.789806713448851,0.41585826182948105,0.9645878048920933,1.1754519850630958,2.187778943504059,1.6172556659878434,2.726030902687744,0.722085600001558,2.3203174763896808,3.1271483066913968,0.6215205763096813,2.5450634952391207,1.518304656075442,3.6210115513555827,-0.5534270703687265,-0.20169785012397112,0.4432369318518897,-0.07794515698824456,-0.6977429391874093,2.032726073870454,0.4479433854061983,2.3671976841257667,1.15940250347304,3.8488454593131385,-0.2664493604380789,0.9463601280757021,-0.38474237165590885,2.9126674569386592,0.5357906810467753,2.2783983576567746,0.8974194439045339,1.442884127749377,1.6570131671381485,2.6763705877119826,2.122321294683436,3.226633419169085,1.2318789351621109,2.825383105085274,3.6087094887664497,1.1363311346224565,3.0300522022915644,2.023370284771035,4.071470789879261,-0.06843836331628261,0.2676699304888934,0.9816387010743757,0.4106464872196791,-0.15236375014212533,2.5528715991116533,0.9530090141017911,2.8287445347099616,1.674213061785815],
+"Model":["Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)","Y ~ 1 + i(f1) (joint CIs)"]
 },
 "mapping":{
 "x":"Coefficient",
